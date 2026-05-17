@@ -1,0 +1,110 @@
+nav.principal {
+  display: flex;
+  padding: 0 30px;
+  height: 70px;
+  justify-content: space-between;
+  align-items: center;
+  background-color: #2c3e50;
+  position: sticky;
+  top: 0;
+  z-index: 1000;
+  box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+  font-family: sans-serif;
+}
+
+.logo a {
+    color: white;
+    text-decoration: none;
+    font-size: 1.4rem;
+    font-weight: bold;
+}
+
+.enlaces {
+  list-style: none;
+  display: flex;
+  gap: 25px;
+  margin: 0;
+  padding: 0;
+  align-items: center;
+}
+
+.enlaces li a {
+    color: white;
+    text-decoration: none;
+    font-size: 0.95rem;
+    font-weight: 500;
+    transition: color 0.3s ease;
+}
+
+.enlaces li a:hover {
+    color: #3498db;
+}
+
+.desplegable {
+    position: relative;
+    cursor: pointer;
+}
+
+a.desplegable {
+    background-color: #3498db;
+    padding: 8px 15px;
+    border-radius: 6px;
+    color: white !important;
+}
+
+.desplegable-contenido {
+    display: none;
+    position: absolute;
+    top: 100%;
+    right: 0;
+    background-color: white;
+    min-width: 170px;
+    box-shadow: 0 8px 16px black;
+    border-radius: 8px;
+    margin-top: 10px;
+    overflow: hidden;
+}
+
+.desplegable-contenido a {
+    color: #3498db !important;
+    padding: 12px 16px;
+    display: block;
+    text-decoration: none;
+    font-size: 0.9rem;
+    transition: background-color 0.2s;
+}
+
+.desplegable-contenido a:hover {
+    background-color: #f1f5f8;
+    color: #287FB8 !important;
+}
+
+.desplegable:hover .desplegable-contenido {
+    display: block;
+}
+
+@media (max-width: 768px) {
+    nav.principal {
+        height: auto;
+        flex-direction: column;
+        padding: 15px;
+    }
+
+    .enlaces {
+        flex-wrap: wrap;
+        justify-content: center;
+        gap: 15px;
+        margin-top: 15px;
+    }
+
+    .desplegable-contenido {
+        position: static;
+        box-shadow: none;
+        background-color: #162d4d;
+        border: 1px solid #384cc6;
+    }
+
+    .desplegable-contenido a {
+        color: white !important;
+    }
+}

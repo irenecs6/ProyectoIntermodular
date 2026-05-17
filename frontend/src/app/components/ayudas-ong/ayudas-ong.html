@@ -1,0 +1,43 @@
+<div class="ayudasong">
+    <h2>Mis Campañas</h2>
+
+    @if (misAyudas.length === 0) {
+        <div class="mensaje-vacio">
+            <p>Aún no has publicado ninguna ayuda.</p>
+        </div>
+    } @else {
+        <div class="tarjetas">
+            
+            @for (ayuda of misAyudas; track ayuda.id) {
+                <div class="tarjeta-ayuda">
+                    <div class="tarjeta">
+                        <h3>{{ ayuda.nombreayuda }}</h3>
+                        <span class="estado" [ngClass]="{'estado-activa': ayuda.estado === 'A', 'estado-conseguida': ayuda.estado === 'C', 'estado-cancelada': ayuda.estado === 'X'}">
+                        {{ ayuda.estado === 'A' ? 'Activa' : (ayuda.estado === 'C' ? 'Conseguida' : 'Cancelada') }}
+                        </span>
+                    </div>
+            
+                    <div class="cuerpo">
+                        <p class="descripcion">{{ ayuda.descripcion }}</p>
+                        
+                        <div class="fechas">
+                        <p><strong>Inicio:</strong> {{ ayuda.fechainicio | date:'dd/MM/yyyy' }}</p>
+                        <p><strong>Fin:</strong> {{ ayuda.fechafin | date:'dd/MM/yyyy' }}</p>
+                        </div>
+
+                        <div class="progreso-financiero">
+                        <p><strong>Objetivo:</strong> {{ ayuda.objetivoFinaciero }}€</p>
+                        <p><strong>Recaudado:</strong> {{ ayuda.montonrecaudado }}€</p>
+                        
+                        </div>
+                    </div>
+
+                    <div class="boton">
+                        <button class="btn-secundario" [routerLink]="['/detalles', ayuda.id]">Modificar</button>
+                    </div>
+                </div>
+            }
+            
+        </div>
+    }
+</div>

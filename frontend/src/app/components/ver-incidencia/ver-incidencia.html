@@ -1,0 +1,107 @@
+<div class="detalle">
+
+    @if (cargando) {
+        <div class="cargando">
+            <i class="fa-solid fa-spinner fa-spin"></i> Cargando información detallada...
+        </div>
+    } 
+    
+    @else if (ayuda) {
+        <div class="cabecera">
+            <h2>{{ ayuda.nombreayuda }}</h2>
+            <p class="ong-name">
+                <i class="fa-solid fa-building-ngo"></i> Gestionado por: <strong>{{ ayuda.ong_nombre || 'ONG Colaboradora' }}</strong>
+            </p>
+        </div>
+
+        <div class="contenido">
+            <div class="info-ayuda">
+                <div class="tarjeta">
+                    <h3>Descripción del Proyecto</h3>
+                    <p class="descripcion">{{ ayuda.descripcion }}</p>
+                </div>
+
+                <div class="tarjeta">
+                    <h3><i class="fa-solid fa-file-shield"></i>Evidencias</h3>
+                    <p class="subtitulo">Justificantes de gastos subidos por la ONG para verificar el uso de los fondos.</p>
+                    
+                    @if (ayuda.evidencia && ayuda.evidencia.length > 0) {
+                        <div class="tabla">
+                            <table class="tabla-evidencias">
+                                <thead>
+                                    <tr>
+                                        <th>Concepto</th>
+                                        <th>Importe</th>
+                                        <th>Archivo</th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    @for (evid of ayuda.evidencia; track evid.id) {
+                                        <tr>
+                                            <td>
+                                                <strong>{{ evid.descripcion }}</strong>
+                                                @if(evid.fechaGasto) {
+                                                    <span class="fecha">{{ evid.fechaGasto }}</span>
+                                                }
+                                            </td>
+                                            <td class="monton">{{ evid.montonjustificado }}€</td>
+                                            <td>
+                                                <a [href]="evid.archivo" target="_blank" class="btn-ojo">
+                                                    <i class="fa-solid fa-eye"></i> Ver
+                                                </a>
+                                            </td>
+                                        </tr>
+                                    }
+                                </tbody>
+                            </table>
+                        </div>
+                    } @else {
+                        <div class="sin-datos">
+                            <i class="fa-solid fa-folder-open"></i>
+                            <p>Aún no se han subido justificantes.</p>
+                        </div>
+                    }
+                </div>
+            </div>
+
+            <div class="evidencias">
+                <div class="tarjeta-progreso">
+                    
+                    <div class="progreso">
+                        <span class="recaudado">{{ ayuda.montonrecaudado || 0 }}€</span>
+                        <span class="objetivo">recaudados de {{ ayuda.objetivoFinaciero }}€</span>
+                    </div>
+
+                    <progress [value]="ayuda.montonrecaudado || 0" [max]="ayuda.objetivoFinaciero"></progress>
+
+                    <button class="btn-donar" 
+                            (click)="intentarDonar(ayuda.id)" 
+                            [disabled]="ayuda.estado === 'C' || ayuda.estado === 'X'">
+                        
+                        @if (ayuda.estado == 'C') {
+                            <i class="fa-solid fa-circle-check"></i> Objetivo Alcanzado
+                        } @else if (ayuda.estado == 'X') {
+                            <i class="fa-solid fa-ban"></i> Ayuda Cancelada
+                        } @else {
+                            <i class="fa-solid fa-heart"></i> Hacer una Donación
+                        }
+                    </button>
+
+                    <button class="btn-volver" routerLink="/ayudas">
+                        Volver al listado
+                    </button>
+                    
+                </div>
+            </div>
+            
+        </div>
+    } 
+    
+    @else {
+        <div class="error-carga">
+            <i class="fa-solid fa-triangle-exclamation"></i>
+            <p>No hemos podido cargar los datos de esta ayuda.</p>
+            <button class="btn-volver" routerLink="/ayudas">Volver al listado</button>
+        </div>
+    }
+</div>

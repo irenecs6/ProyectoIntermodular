@@ -1,0 +1,10 @@
+# Ignorar cosas de Angular
+frontend/node_modules/
+frontend/.angular/
+
+# Ignorar cosas de Django y Python
+backend/env/
+.env
+backend/__pycache__/
+*.pyc
+backend/db.sqlite3 

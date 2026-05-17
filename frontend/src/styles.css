@@ -1,0 +1,146 @@
+/* You can add global styles to this file, and also import other style files */
+/*Registros*/
+body {
+  margin: 0;
+}
+
+.registro-contenedor {
+  max-width: 420px;
+  margin: 50px auto;
+  background: white;
+  padding: 40px;
+  border-radius: 16px;
+  box-shadow: 0 15px 35px black;
+  font-family: sans-serif;
+}
+
+.registro-contenedor h2 {
+  text-align: left;
+  color: #2C3E50;
+  font-size: 1.8rem;
+  margin-bottom: 8px;
+}
+
+.registro-contenedor p {
+  text-align: left;
+  color: #6b7280;
+  font-size: 0.95rem;
+  margin-bottom: 35px;
+  border-bottom: 1px solid #e5e7eb;
+  padding-bottom: 20px;
+}
+
+.registro-contenedor form div {
+  margin-bottom: 20px;
+}
+
+.registro-contenedor label {
+  display: block;
+  margin-bottom: 8px;
+  font-size: 0.75rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  color: #4b5563;
+}
+
+.registro-contenedor input {
+  width: 100%;
+  padding: 14px 16px;
+  border: 2px solid #2C3E50 transparent; 
+  border-radius: 10px;
+  background-color: white;
+  font-size: 1rem;
+  color: #1f31a5;
+  box-sizing: border-box;
+}
+
+/*al hacer clic para escribir*/
+.registro-contenedor input:focus {
+  border-color: #3498db;
+  background-color: white;
+  outline: none;
+  box-shadow: 0 0 0 4px rgba(60, 132, 248, 0.15);
+}
+
+/*boton de seleccionar archivo */
+.registro-contenedor input[type="file"] {
+  padding: 10px;
+  background-color: white;
+  border: 2px dashed #d1d5db;
+  color: #6b7280;
+  cursor: pointer;
+}
+
+.registro-contenedor input[type="file"]:hover {
+  border-color: #3498db;
+}
+
+.registro-contenedor button {
+  width: 100%;
+  background: linear-gradient(135deg, #3498db 0%, #1f31a5 100%);
+  color: white;
+  padding: 16px;
+  border: none;
+  border-radius: 10px;
+  font-size: 1.05rem;
+  font-weight: bold;
+  letter-spacing: 0.5px;
+  cursor: pointer;
+  margin-top: 15px;
+  transition: transform 0.2s, background-color 0.3s, box-shadow 0.2s;
+}
+
+.registro-contenedor button:hover {
+  background-color: #1f31a5;
+  box-shadow: 0 10px 20px rgba(56, 76, 198, 0.3);
+}
+
+.alerta-error {
+  background-color: #fee2e2;
+  border-left: 4px solid #ef4444;
+  color: #991b1b;
+  padding: 15px;
+  margin-bottom: 25px;
+  border-radius: 6px;
+  font-size: 0.9rem;
+}
+
+.alerta-error p {
+  color: #991b1b;
+  margin: 0 0 10px 0;
+  border: none;
+  padding: 0;
+  font-weight: bold;
+}
+
+.alerta-error ul {
+  margin: 0;
+  padding-left: 20px;
+}
+
+.alerta-error li {
+  margin-bottom: 5px;
+}
+
+@media (max-width: 768px) {
+  .registro-contenedor {
+    margin: 20px 15px;
+    padding: 25px 20px; 
+    border-radius: 12px;
+  }
+
+  .registro-contenedor h2 {
+    font-size: 1.5rem;
+  }
+
+  .registro-contenedor p {
+    font-size: 0.9rem;
+    margin-bottom: 25px;
+  }
+
+  .registro-contenedor input, 
+  .registro-contenedor button {
+    padding: 12px 14px; 
+    font-size: 0.95rem;
+  }
+}

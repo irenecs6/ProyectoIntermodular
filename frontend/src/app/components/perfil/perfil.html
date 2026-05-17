@@ -1,0 +1,161 @@
+<div class="perfil">
+    <h2>Mi Perfil</h2>
+
+    @if (cargando) {
+        <div class="cargando">
+            <p>Esperando datos... <i class="fa-solid fa-arrow-rotate-right fa-spin" style="color: rgb(56, 76, 198);"></i></p>
+        </div>
+    } 
+    
+    @else if (!datosPerfil) {
+        <div class="error">
+            <p>No se pudo cargar la información del perfil.</p>
+        </div>
+    } 
+    
+    @else {
+        @if (rol === 'ong') {
+            <div class="tarjeta">
+                <div class="cabecera">
+                    <div class="avatar"><i class="fa-solid fa-user-tie" style="color: rgb(56, 76, 198);"></i></div>
+                    <h3>{{ datosPerfil.nombrecompleto }}</h3>
+                    <span class="rol">Organización</span>
+                </div>
+                
+                <div class="lista-datos">
+                    <div class="dato">
+                        <strong>CIF:</strong>
+                        <span>{{ datosPerfil.cif }}</span>
+                    </div>
+                    <div class="dato">
+                        <strong>Email de contacto:</strong>
+                        @if (!modoEdicion) {
+                            <span>{{ datosPerfil.email }}</span>
+                        } @else {
+                            <input type="email" [(ngModel)]="datosPerfil.email" name="email">
+                        }
+                    </div>
+                    <div class="dato">
+                        <strong>Teléfono:</strong>
+                        @if (!modoEdicion) {
+                            <span>{{ datosPerfil.telefono || 'No proporcionado' }}</span>
+                        } @else {
+                            <input type="text" [(ngModel)]="datosPerfil.telefono" name="telefono">
+                        }
+                    </div>
+                    <div class="dato">
+                        <strong>Descripcion:</strong>
+                        @if (!modoEdicion) {
+                            <span>{{ datosPerfil.descripcion || '---' }}</span>
+                        } @else {
+                            <textarea [(ngModel)]="datosPerfil.descripcion" name="descripcion"></textarea>
+                        }
+                    </div>
+                    <div class="dato">
+                        <strong>IBAN:</strong>
+                        @if (!modoEdicion) {
+                            <span>{{ datosPerfil.iban }}</span>
+                        } @else {
+                            <input type="text" [(ngModel)]="datosPerfil.iban" name="iban">
+                        }
+                    </div>
+                </div>
+                
+                <div class="acciones">
+                    @if (!modoEdicion) {
+                        <button class="btn-editar" (click)="activarEdicion()">
+                            Editar Perfil
+                        </button>
+                    } @else {
+                        <button class="btn-guardar" (click)="guardarCambios()">
+                            Guardar Cambios
+                        </button>
+                        <button class="btn-cancelar" (click)="cancelarEdicion()">
+                            Cancelar
+                        </button>
+                    }
+                </div>            
+            </div>
+        }
+        
+        @else if (rol === 'donante') {
+            <div class="tarjeta">
+                <div class="cabecera">
+                    <div class="avatar"><i class="fa-solid fa-user" style="color: rgb(56, 76, 198);"></i></div>
+                    <h3>{{ datosPerfil.nombre }} {{ datosPerfil.apellidos }}</h3>
+                    <span class="rol">Donante Solidario</span>
+                </div>
+                
+                <div class="lista-datos">
+                    <div class="dato">
+                        <strong>DNI:</strong>
+                        <span>{{ datosPerfil.dni }}</span>
+                    </div>
+                    <div class="dato">
+                        <strong>Nombre:</strong>
+                        @if (!modoEdicion) {
+                            <span>{{ datosPerfil.nombre }}</span>
+                        } @else {
+                            <input type="text" [(ngModel)]="datosPerfil.nombre" name="nombre">
+                        }
+                    </div>
+                    <div class="dato">
+                        <strong>Apellidos:</strong>
+                        @if (!modoEdicion) {
+                            <span>{{ datosPerfil.apellidos }}</span>
+                        } @else {
+                            <input type="text" [(ngModel)]="datosPerfil.apellidos" name="apellidos">
+                        }
+                    </div>
+                    <div class="dato">
+                        <strong>Email:</strong>
+                        @if (!modoEdicion) {
+                            <span>{{ datosPerfil.email }}</span>
+                        } @else {
+                            <input type="email" [(ngModel)]="datosPerfil.email" name="email">
+                        }
+                    </div>
+                    <div class="dato">
+                        <strong>Teléfono:</strong>
+                        @if (!modoEdicion) {
+                            <span>{{ datosPerfil.telefono || 'No proporcionado' }}</span>
+                        } @else {
+                            <input type="text" [(ngModel)]="datosPerfil.telefono" name="telefono">
+                        }
+                    </div>
+                    <div class="dato">
+                        <strong>Fecha de Nacimiento:</strong>
+                        @if (!modoEdicion) {
+                            <span>{{ datosPerfil.fechanacimiento | date:'dd/MM/yyyy' }}</span>
+                        } @else {
+                            <input type="date" [(ngModel)]="datosPerfil.fechanacimiento" name="fechanacimiento">
+                        }
+                         
+                    </div>
+                    <div class="dato">
+                        <strong>Saldo Cartera:</strong>
+                        <span>{{ datosPerfil.cartera }}€</span>
+                         <!-- @if (modoEdicion){
+                            <input type="text" [(ngModel)]="datosPerfil.cartera" name="cartera">
+                        } -->
+                    </div>
+                </div>
+
+                <div class="acciones">
+                    @if (!modoEdicion) {
+                        <button class="btn-editar" (click)="activarEdicion()">
+                            Editar Perfil
+                        </button>
+                    } @else {
+                        <button class="btn-guardar" (click)="guardarCambios()">
+                            Guardar Cambios
+                        </button>
+                        <button class="btn-cancelar" (click)="cancelarEdicion()">
+                            Cancelar
+                        </button>
+                    }
+                </div>
+            </div>
+        }
+    }
+</div>

@@ -1,0 +1,164 @@
+.donacion {
+    display: flex;
+    justify-content: center;
+    padding: 50px 20px;
+    font-family: sans-serif;
+    background-color: #f9fbfd;
+}
+
+.tarjeta {
+    background: white;
+    padding: 30px;
+    border-radius: 10px;
+    box-shadow: 0 4px 15px black;
+    max-width: 500px;
+    width: 100%;
+    text-align: center;
+}
+
+.tarjeta h2 {
+    color: #2C3E50;
+    font-size: 1.8rem;
+    margin-bottom: 25px;
+}
+
+.alerta-confirmacion {
+    background-color: #f8f9fa;
+    border-left: 4px solid #1f31a5;
+    padding: 15px;
+    border-radius: 6px;
+    margin-bottom: 25px;
+    font-size: 0.95rem;
+    color: #4b5563;
+    text-align: left;
+    line-height: 1.5;
+}
+.alerta-confirmacion strong {
+    color: #2C3E50;
+}
+
+.campo {
+    text-align: left;
+    margin-bottom: 15px;
+}
+
+.campo label {
+    display: block;
+    font-weight: bold;
+    color: #2C3E50;
+    margin-bottom: 8px;
+    font-size: 0.95rem;
+} 
+
+.campo input {
+    width: 100%;
+    padding: 15px;
+    font-size: 1.2rem;
+    text-align: center;
+    border: 2px solid #bdc3c7;
+    border-radius: 8px;
+    margin-top: 10px;
+}  
+
+.campo input:focus {
+    border-color: #3498db;
+    background-color: white;
+    outline: none;
+    box-shadow: 0 0 0 4px rgba(52, 152, 219, 0.15);
+}
+
+.cantidades {
+    display: flex;
+    justify-content: space-between;
+    margin: 20px 0;
+    gap: 10px;
+}
+
+.cantidades button {
+    flex: 1;
+    padding: 10px;
+    background: #f1f5f8;
+    color: #2C3E50;
+    border: 2px solid transparent;
+    border-radius: 5px;
+    cursor: pointer;
+    font-weight: bold;
+    transition: all 0.2s ease;
+}
+
+.cantidades button:hover {
+    background: #3498db;
+    color: white;
+    box-shadow: 0 4px 10px rgba(52, 152, 219, 0.3);
+}
+
+.cantidades button:active {
+    background: #287FB8;
+    transform: translateY(0);
+}
+
+.btn-confirmar {
+    width: 100%;
+    padding: 15px;
+    background: #27ae60;
+    color: white;
+    font-size: 1.1rem;
+    font-weight: bold;
+    border: none;
+    border-radius: 8px;
+    cursor: pointer;
+    margin-bottom: 10px;
+    transition: all 0.3s ease;
+    box-shadow: 0 4px 15px rgba(39, 174, 96, 0.3);
+}
+
+.btn-confirmar:disabled {
+    background: #95a5a6;
+    box-shadow: none;
+    cursor: not-allowed;
+    transform: none;
+}
+
+.btn-cancelar {
+    width: 100%;
+    padding: 15px;
+    background: transparent;
+    color: #e74c3c;
+    border: none;
+    font-weight: bold;
+    cursor: pointer;
+    transition: background 0.2s;
+
+}
+
+.btn-cancelar:hover {
+    background: #fee2e2;
+}
+
+@media (max-width: 768px) {
+    .donacion {
+        padding: 30px 15px;
+    }
+
+    .tarjeta {
+        padding: 25px 20px;
+    }
+
+    .tarjeta h2 {
+        font-size: 1.5rem;
+    }
+
+    .cantidades {
+        gap: 10px;
+    }
+
+    .cantidades button {
+        padding: 10px;
+        font-size: 1rem;
+    }
+
+    .btn-confirmar {
+        font-size: 1.05rem;
+        padding: 15px;
+    }
+}

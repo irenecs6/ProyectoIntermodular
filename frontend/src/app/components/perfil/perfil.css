@@ -1,0 +1,171 @@
+.perfil {
+  max-width: 600px;
+  margin: 50px auto;
+  font-family: Arial, sans-serif;
+  padding: 0 20px;
+}
+
+.perfil h2 {
+  color: #2C3E50;
+  text-align: center;
+  font-size: 2.2rem;
+  margin-bottom: 30px;
+}
+
+.tarjeta {
+  background: white;
+  border-radius: 14px;
+  padding: 30px;
+  box-shadow: 0 4px 15px black;
+  text-align: center;
+}
+
+.cabecera {
+  border-bottom: 2px solid #f1f5f8;
+  padding-bottom: 20px;
+  margin-bottom: 20px;
+}
+
+.avatar {
+  font-size: 50px;
+  margin-bottom: 10px;
+  color: #3498db;
+}
+
+.cabecera h3 {
+  color: #2C3E50;
+  font-size: 1.6rem;
+  margin-bottom: 10px;
+}
+
+.rol {
+  background: #e3f2fd;
+  color: #3498db;
+  padding: 5px 15px;
+  border-radius: 20px;
+  font-size: 0.9em;
+  font-weight: bold;
+  text-transform: uppercase;
+}
+
+.lista-datos {
+  text-align: left;
+  margin-bottom: 25px;
+}
+
+.dato {
+  padding: 12px 0;
+  border-bottom: 1px dashed #e2e8f0;
+  display: flex;
+  justify-content: space-between;
+}
+
+.dato input, .dato textarea {
+    width: 100%;
+    padding: 10px 12px;
+    border: 2px solid #e5e7eb;
+    border-radius: 8px;
+    font-size: 1rem;
+    color: #2C3E50;
+    background-color: #f9fafb;
+    transition: all 0.3s ease;
+}
+
+.dato textarea {
+    min-height: 80px;
+    resize: vertical;
+}
+
+.dato input:focus, .dato textarea:focus {
+    border-color: #3498db;
+    background-color: white;
+    outline: none;
+    box-shadow: 0 0 0 3px rgba(52, 152, 219, 0.15);
+}
+
+.acciones {
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+}
+
+.btn-editar {
+  background: #3498db;
+  color: white;
+  border: none;
+  padding: 10px 20px;
+  border-radius: 6px;
+  cursor: pointer;
+  font-weight: bold;
+  width: 100%;
+  transition: all 0.3s ease;
+  box-shadow: 0 4px 10px rgba(52, 152, 219, 0.3);
+}
+
+.btn-editar:hover {
+  background: #287FB8;
+}
+
+.btn-guardar {
+    background: #27ae60;
+    color: white;
+    border: none;
+    padding: 14px 20px;
+    border-radius: 8px;
+    cursor: pointer;
+    font-size: 1.05rem; 
+    font-weight: bold;
+    width: 100%;
+    transition: all 0.3s ease;
+}
+
+.btn-guardar:hover {
+    background: #219150;
+    transform: translateY(-2px);
+}
+
+.btn-cancelar {
+    background: transparent;
+    color: #e74c3c;
+    border: 2px solid #e74c3c;
+    padding: 12px 20px;
+    border-radius: 8px;
+    cursor: pointer;
+    font-size: 1rem;
+    font-weight: bold;
+    width: 100%;
+    transition: all 0.3s ease;
+}
+
+.btn-cancelar:hover {
+    background: #e74d3ccf;
+}
+
+.cargando, .error {
+    text-align: center;
+    padding: 40px;
+    background: white;
+    border-radius: 12px;
+    box-shadow: 0 4px 15px rgba(0,0,0,0.05);
+}
+
+.error {
+    color: #e74c3c;
+    font-weight: bold;
+}
+
+@media (min-width: 768px) {
+    .dato {
+        flex-direction: row;
+        justify-content: space-between;
+        align-items: center;
+    }
+    
+    .dato input, .dato textarea {
+        width: 60%;
+      }
+
+    .acciones {
+        flex-direction: row;
+    }
+}

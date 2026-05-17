@@ -1,0 +1,18 @@
+<div class="registro-contenedor login">
+  <h2>Iniciar Sesión</h2>
+  <p>Entra en tu cuenta para gestionar tu plataforma.</p>
+  
+  <form (ngSubmit)="onLogin()" #loginForm="ngForm">
+    <div>
+      <label>Email o DNI:</label>
+      <input type="text" name="username" [(ngModel)]="credenciales.username" required>
+    </div>
+
+    <div>
+      <label>Contraseña:</label>
+      <input type="password" name="password" [(ngModel)]="credenciales.password" required>
+    </div>
+
+    <button class="login" type="submit" [disabled]="!loginForm.valid">Entrar</button>
+  </form>
+</div>

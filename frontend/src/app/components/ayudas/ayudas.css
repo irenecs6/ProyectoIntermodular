@@ -1,0 +1,187 @@
+.contenedor {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 40px 20px;
+    font-family: Arial, Helvetica, sans-serif;
+}
+
+.cabecera {
+    text-align: center;
+    margin-bottom: 40px;
+}
+
+.cabecera h2 {
+    color: #2C3E50;
+    font-size: 2.2rem;
+    margin-bottom: 10px;
+}
+
+/* Tarjetas */
+.ayudas {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(320px, 1fr));
+    gap: 25px;
+}
+
+.tarjetas {
+    background: white;
+    border-radius: 12px;
+    box-shadow: 0 4px 15px black;
+    display: flex;
+    flex-direction: column;
+    overflow: hidden;
+    transition: transform 0.3s;
+    border: 1px solid white;
+}
+
+.tarjetas:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 8px 25px black;
+}
+
+.contenido-tarjeta {
+    padding: 20px;
+    flex-grow: 1; /* Empuja el boton hacia abajo */
+}
+
+.contenido-tarjeta h3 {
+    margin-bottom: 15px;
+    color: #2C3E50;
+    font-size: 1.3rem;
+}
+
+.nombre-ong {
+    display: block;
+    color: #1f31a5;
+    font-weight: bold;
+    font-size: 0.8rem;
+    margin-bottom: 9px;
+    text-transform: uppercase;
+}
+
+.estado-ong {
+    display: block;
+    font-size: 0.85rem;
+    font-weight: 600;
+    margin-bottom: 10px;
+}
+.estado-ong i { margin-right: 5px; }
+.text-fiable { color: #27ae60; }
+.text-sospechosa { color: #e74c3c; }
+.text-gris { color: #7f8c8d; }
+
+
+.descripcion {
+    color: #2C3E50;
+    font-size: 0.95rem;
+    line-height: 1.5;
+    margin-bottom: 20px;
+}
+
+/* Barra de Progreso */
+.info-dinero {
+    margin-top: auto;
+}
+
+.dinero {
+    display: flex;
+    justify-content: space-between;
+    margin-bottom: 8px;
+    font-size: 0.95rem;
+}
+
+progress {
+    width: 100%;
+    height: 10px;
+    border-radius: 5px;
+    -webkit-appearance: none;
+    appearance: none;
+}
+
+progress::-webkit-progress-bar {
+    background-color: #ecf0f1;
+    border-radius: 5px;
+}
+
+progress::-webkit-progress-value {
+    background-color: #27ae60;
+    border-radius: 5px;
+}
+
+/* Boton */
+.btn-donar {
+    background-color: #27ae60;
+    color: white;
+    border: none;
+    padding: 15px;
+    font-weight: bold;
+    cursor: pointer;
+    width: 100%;
+    transition: background 0.3s;
+}
+
+.btn-donar:hover:not(:disabled) {
+    background-color: #219150;
+}
+
+.btn-donar:disabled {
+    background-color: #bdc3c7;
+    cursor: not-allowed;
+}
+
+/* Cargar y vacios */
+.cargando, .sin-ayudas {
+    text-align: center;
+    grid-column: 1 / -1;
+    padding: 60px;
+    color: #999;
+}
+
+.btn-ver-evidencias {
+    width: 100%;
+    background-color: #f1f5f8;
+    color: #3498db;
+    border: none;
+    padding: 12px;
+    border-radius: 8px;
+    font-size: 0.95rem;
+    font-weight: bold;
+    cursor: pointer;
+    transition: all 0.3s ease;
+}
+
+.btn-ver-evidencias:hover {
+    background-color: #e0f2fe;
+    color: #1f31a5;
+}
+
+@media (max-width: 768px) {
+    .contenedor {
+        padding: 20px 15px;
+    }
+
+    .cabecera {
+        margin-bottom: 25px;
+    }
+
+    .cabecera h2 {
+        font-size: 1.5rem;
+    }
+
+    .ayudas {
+        grid-template-columns: 1fr;
+        gap: 20px;
+    }
+
+    .contenido-tarjeta {
+        padding: 20px;
+    }
+
+    .contenido-tarjeta h3 {
+        font-size: 1.2rem;
+    }
+
+    .btn-donar, .btn-ver-evidencias {
+        padding: 20px;
+    }
+}

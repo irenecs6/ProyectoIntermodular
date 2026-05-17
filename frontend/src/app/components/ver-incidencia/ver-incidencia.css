@@ -1,0 +1,245 @@
+.detalle {
+    max-width: 1100px;
+    margin: 40px auto;
+    padding: 0 20px;
+    font-family: sans-serif;
+}
+
+.cabecera {
+    text-align: center;
+    margin-bottom: 40px;
+}
+
+.cabecera h2 {
+    color: #2C3E50;
+    font-size: 2.4rem;
+    margin-bottom: 10px;
+    font-weight: 800;
+}
+
+.ong-name {
+    color: #6b7280;
+    font-size: 1.1rem;
+    background-color: #f3f4f6;
+    display: inline-block;
+    padding: 8px 16px;
+    border-radius: 50px;
+}
+
+.ong-name strong {
+    color: #2C3E50;
+}
+
+.contenido {
+    display: grid;
+    grid-template-columns: 2fr 1fr;
+    gap: 30px;
+    align-items: start;
+}
+
+.tarjeta, .tarjeta-progreso {
+    background: white;
+    border-radius: 12px;
+    padding: 30px;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.05);
+    margin-bottom: 30px;
+}
+
+.tarjeta h3 {
+    color: #2C3E50;
+    margin-top: 0;
+    font-size: 1.4rem;
+    border-bottom: 2px solid #f1f5f8;
+    padding-bottom: 15px;
+    margin-bottom: 20px;
+}
+
+.descripcion {
+    color: #4b5563;
+    line-height: 1.6;
+    font-size: 1.05rem;
+}
+
+.subtitulo {
+    color: #6b7280;
+    margin-bottom: 20px;
+}
+
+.tabla {
+    width: 100%;
+    overflow-x: auto;
+}
+
+.tabla-evidencias {
+    width: 100%;
+    border-collapse: collapse;
+}
+
+.tabla-evidencias th {
+    background-color: #f8f9fa;
+    color: #2C3E50;
+    text-align: left;
+    padding: 12px 15px;
+    font-size: 0.9rem;
+    text-transform: uppercase;
+    border-bottom: 2px solid #e5e7eb;
+}
+
+.tabla-evidencias td {
+    padding: 15px;
+    border-bottom: 1px dashed #e5e7eb;
+}
+
+.tabla-evidencias td strong {
+    display: block;
+    color: #2C3E50;
+    font-size: 0.95rem;
+}
+
+.fecha {
+    font-size: 0.8rem;
+    color: #9ca3af;
+    display: block;
+    margin-top: 4px;
+}
+
+.monton {
+    font-weight: bold;
+    color: #27ae60;
+    font-size: 1.1rem;
+}
+
+.btn-ojo {
+    background-color: #e0f2fe;
+    color: #3498db;
+    padding: 8px 12px;
+    border-radius: 6px;
+    text-decoration: none;
+    font-weight: bold;
+    font-size: 0.85rem;
+    transition: background-color 0.2s;
+    display: inline-block;
+}
+
+.btn-ojo:hover {
+    background-color: #3498db;
+    color: white;
+}
+
+.sin-datos {
+    text-align: center;
+    padding: 40px 20px;
+    color: #9ca3af;
+}
+
+.sin-datos i {
+    font-size: 2.5rem;
+    margin-bottom: 10px;
+}
+
+.tarjeta-progreso {
+    position: sticky;
+    top: 20px;
+    text-align: center;
+}
+
+.progreso {
+    margin-bottom: 15px;
+}
+
+.recaudado {
+    display: block;
+    font-size: 2.4rem;
+    font-weight: bold;
+    color: #27ae60;
+}
+
+.objetivo {
+    color: #6b7280;
+    font-size: 0.95rem;
+}
+
+progress {
+    width: 100%;
+    height: 14px;
+    border-radius: 10px;
+    overflow: hidden;
+    border: none;
+    background-color: #f1f5f8;
+    margin-bottom: 25px;
+}
+progress::-webkit-progress-bar { background-color: #f1f5f8; }
+progress::-webkit-progress-value { background-color: #27ae60; }
+
+.btn-donar {
+    width: 100%;
+    background-color: #3498db;
+    color: white;
+    border: none;
+    padding: 16px;
+    border-radius: 8px;
+    font-size: 1.1rem;
+    font-weight: bold;
+    cursor: pointer;
+    box-shadow: 0 4px 10px rgba(52, 152, 219, 0.3);
+    transition: all 0.3s ease;
+    margin-bottom: 15px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 10px;
+}
+
+.btn-donar:hover:not(:disabled) {
+    background-color: #287FB8;
+    transform: translateY(-2px);
+}
+
+.btn-donar:disabled {
+    background-color: #9ca3af;
+    box-shadow: none;
+    cursor: not-allowed;
+}
+
+.btn-volver {
+    width: 100%;
+    background: transparent;
+    border: none;
+    color: #1f31a5;
+    font-weight: bold;
+    cursor: pointer;
+    padding: 10px;
+    font-size: 0.95rem;
+    text-decoration: underline transparent;
+    transition: all 0.3s ease;
+}
+
+.btn-volver:hover {
+    color: #3498db;
+    text-decoration: underline;
+}
+
+.cargando, .error-carga {
+    text-align: center;
+    padding: 80px 20px;
+    color: #6b7280;
+    font-size: 1.2rem;
+}
+
+.error-carga i {
+    font-size: 3rem;
+    color: #e74c3c;
+    margin-bottom: 15px;
+    display: block;
+}
+
+@media (max-width: 768) {
+    .contenido {
+        grid-template-columns: 1fr;
+    }
+    
+    .tarjeta-progreso {
+        position: static;
+        order: -1;
+    }
+}

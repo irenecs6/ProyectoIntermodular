@@ -1,0 +1,54 @@
+<div class="donacion">
+    <div class="tarjeta">
+        
+        @if (cargandoDatos) {
+            <p><i class="fa-solid fa-spinner fa-spin"></i> Cargando información de la ayuda...</p>
+        } @else if (ayuda) {
+            <h2><i class="fa-solid fa-hand-holding-dollar"></i> Realizar Donación</h2>
+            
+            <div class="alerta-confirmacion">
+                <p>
+                    ¿Estás seguro de donar a la ayuda <strong>"{{ ayuda.nombreayuda }}"</strong> 
+                    de la ONG <strong>"{{ ayuda.ong_nombre || 'ONG' }}"</strong>?
+                </p>
+            </div>
+
+            <div class="formulario">
+                <div class="campo">
+                    <label>¿Cuánto deseas aportar? (€)</label>
+                    <input 
+                        type="number" 
+                        [(ngModel)]="cantidad" 
+                        placeholder="Ej: 50" 
+                        min="1" 
+                        step="1">
+                </div>
+
+                <div class="cantidades">
+                    <button (click)="cantidad = 10">10 €</button>
+                    <button (click)="cantidad = 20">20 €</button>
+                    <button (click)="cantidad = 50">50 €</button>
+                </div>
+
+                <button 
+                    class="btn-confirmar" 
+                    (click)="confirmarDonacion()" 
+                    [disabled]="procesando || cantidad <= 0">
+                    
+                    @if (procesando) {
+                        <i class="fa-solid fa-spinner fa-spin"></i> Procesando...
+                    } @else {
+                        Confirmar Donación de {{ cantidad ? cantidad + '€' : '' }}
+                    }
+                </button>
+                
+                <button class="btn-cancelar" [routerLink]="['/ayudas']">
+                    Cancelar y volver
+                </button>
+            </div>
+        } @else {
+            <p>No se pudo cargar la información de la ayuda.</p>
+            <button class="btn-cancelar" [routerLink]="['/ayudas']">Volver</button>
+        }
+    </div>
+</div>

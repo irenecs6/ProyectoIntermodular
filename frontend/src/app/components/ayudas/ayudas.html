@@ -1,0 +1,76 @@
+<div class="contenedor">
+    <div class="cabecera">
+        <h2>Proyectos de Ayuda</h2>
+        <p>Selecciona una causa y colabora directamente con las ONGs.</p>
+    </div>
+
+    @if (cargando) {
+        <div class="cargando">
+            <i class="fa-solid fa-spinner fa-spin"></i> Cargando...
+        </div>
+    } @else {
+        <div class="ayudas">
+            @for (ayuda of listaAyudas; track ayuda.id) {
+                <div class="tarjetas">
+                    
+                    <div class="contenido-tarjeta">
+                        <span class="estado-ong" [ngClass]="{
+                            'text-sospechosa': ayuda.ong_estado === 'S',
+                            'text-fiable': ayuda.ong_estado === 'F',
+                            'text-gris': !ayuda.ong_estado
+                        }">
+                            <i class="fa-solid fa-house-chimney-heart"></i> 
+                            {{ ayuda.ong_estado === 'F' ? 'ONG Fiable' : (ayuda.ong_estado === 'S' ? 'ONG Sospechosa' : 'ONG Sin Verficar') }}
+                                    
+                        </span>
+
+                        <span class="nombre-ong">
+                            <i class="fa-solid fa-house-chimney-heart"></i> 
+                            {{ ayuda.ong_nombre || 'ONG Colaboradora' }}
+                        </span>
+
+                        <h3>{{ ayuda.nombreayuda }}</h3>
+                        
+                        <p class="descripcion">
+                            {{ ayuda.descripcion }}
+                        </p>
+                        
+                        <div class="info-dinero">
+                            <div class="barra-contenedor">
+                                <progress 
+                                    [value]="ayuda.montonrecaudado" 
+                                    [max]="ayuda.objetivoFinaciero">
+                                </progress>
+                            </div>
+                            <div class="dinero">
+                                <span>Recaudado: <strong>{{ ayuda.montonrecaudado }}€</strong></span>
+                                <span>Meta: <strong>{{ ayuda.objetivoFinaciero }}€</strong></span>
+                            </div>
+                        </div>
+                    </div>
+
+                    <button class="btn-ver-evidencias" [routerLink]="['/ayuda-detalle', ayuda.id]">
+                        <i class="fa-solid fa-file-invoice"></i> Ver evidencias y detalles
+                    </button>
+
+                    <button 
+                        class="btn-donar" 
+                        (click)="intentarDonar(ayuda.id)"
+                        [disabled]="ayuda.estado === 'C' || ayuda.estado === 'X'">
+                            @if (ayuda.estado == 'C') {
+                                Objetivo Completado
+                            } @else if (ayuda.estado == 'X') {
+                                Cancelado
+                            }@else {
+                                <i class="fa-solid fa-heart"></i> Donar ahora
+                            }
+                    </button>
+                </div>
+            } @empty {
+                <div class="sin-ayudas">
+                    <p>No hay ayudas disponibles en este momento.</p>
+                </div>
+            }
+        </div>
+    }
+</div>

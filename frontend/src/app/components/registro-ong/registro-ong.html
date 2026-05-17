@@ -1,0 +1,47 @@
+<div class="registro-contenedor">
+  <h2>Registro para ONGs</h2>
+  <p>Únete a nosotros para publicar tus causas y hacerte más visible.</p>
+    @if (mensajesError.length > 0) {
+      <div class="alerta-error">
+        <p><strong>Por favor, revisa lo siguiente:</strong></p>
+        <ul>
+          @for (error of mensajesError; track $index) {
+            <li>{{ error }}</li>
+          }
+        </ul>
+      </div>
+    }
+  <form (ngSubmit)="registrarONG()">
+    <div>
+      <label>CIF:</label>
+      <input type="text" name="cif" [(ngModel)]="ong.cif" required>
+    </div>
+
+    <div>
+      <label>Nombre de la Organización:</label>
+      <input type="text" name="nombrecompleto" [(ngModel)]="ong.nombrecompleto" required>
+    </div>
+
+    <div>
+      <label>Email de contacto:</label>
+      <input type="email" name="email" [(ngModel)]="ong.email" required>
+    </div>
+
+    <div>
+      <label>Contraseña:</label>
+      <input type="password" name="clave" [(ngModel)]="ong.clave" required>
+    </div>
+
+    <div>
+      <label>IBAN:</label>
+      <input type="text" name="iban" [(ngModel)]="ong.iban" required>
+    </div>
+
+    <div>
+      <label>Documento acreditativo (PDF o Imagen):</label>
+      <input type="file" (change)="onFileSelected($event)" accept=".pdf,image/*" required>
+    </div>
+
+    <button type="submit">Solicitar Registro</button>
+  </form>
+</div>

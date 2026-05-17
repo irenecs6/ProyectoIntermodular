@@ -1,0 +1,12 @@
+.login h2 { 
+  text-align: center;
+  color: #2C3E50; 
+}
+.login p { 
+  text-align: center;
+}
+
+.login:disabled {
+    color: #7f8389;
+    cursor: not-allowed;
+}

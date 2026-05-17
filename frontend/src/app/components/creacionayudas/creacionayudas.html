@@ -1,0 +1,43 @@
+<div class="registro-contenedor">
+  <h2>Crear Nueva Campaña de Ayuda</h2>
+    
+  @if (mensajesError.length > 0) {
+      <div class="alerta-error">
+        <p><strong>Por favor, completa los siguientes campos:</strong></p>
+        <ul>
+          @for (error of mensajesError; track $index) {
+            <li>{{ error }}</li>
+          }
+        </ul>
+      </div>
+    }
+
+  <form (ngSubmit)="crearNuevaAyuda()">
+    <div>
+      <label>Nombre de la Ayuda:</label>
+      <input type="text" name="nombreayuda" [(ngModel)]="ayuda.nombreayuda" required>
+    </div>
+
+    <div>
+      <label>Descripción:</label>
+      <textarea name="descripcion" [(ngModel)]="ayuda.descripcion" required></textarea>
+    </div>
+
+    <div>
+      <label>Fecha de Inicio:</label>
+      <input type="date" name="fechainicio" [(ngModel)]="ayuda.fechainicio" required>
+    </div>
+
+    <div>
+      <label>Fecha de Fin:</label>
+      <input type="date" name="fechafin" [(ngModel)]="ayuda.fechafin" required>
+    </div>
+    
+    <div>
+      <label>Objetivo Financiero (€):</label>
+      <input type="number" name="objetivoFinaciero" [(ngModel)]="ayuda.objetivoFinaciero" required>
+    </div>
+    
+    <button type="submit">Publicar Ayuda</button>
+  </form>
+</div>

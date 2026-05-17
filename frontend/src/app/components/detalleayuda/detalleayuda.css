@@ -1,0 +1,254 @@
+.detalle {
+    max-width: 800px;
+    margin: 40px auto;
+    padding: 20px;
+    font-family: sans-serif;
+    background-color: #f9fbfd;
+    border-radius: 12px;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.05);
+}
+
+h2 {
+    color: #2c3e50;
+    text-align: center;
+    margin-bottom: 30px;
+    font-weight: 600;
+}
+
+.panel-informativo {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 20px;
+    margin-bottom: 30px;
+}
+
+.dato {
+    background: white;
+    padding: 20px;
+    border-radius: 10px;
+    text-align: center;
+    border-left: 5px solid #1f31a5;
+    box-shadow: 0 2px 8px rgba(0,0,0,0.03);
+}
+
+.dato p {
+    margin: 0;
+    color: #6b7280;
+    font-size: 0.9rem;
+    text-transform: uppercase;
+    font-weight: bold;
+}
+
+.dato h3 {
+    margin: 10px 0 0;
+    font-size: 1.5rem;
+    color: #2c3e50;
+}
+
+.dato h3.dinero {
+    color: #27ae60;
+}
+
+.dato h3.estado-activa {
+    color: #3498db;
+}
+
+.dato h3.estado-conseguida {
+    color: #27ae60; 
+}
+
+.dato h3.estado-cancelada {
+    color: #e74c3c;
+}
+
+.formulario {
+    background: white;
+    padding: 30px;
+    border-radius: 10px;
+    box-shadow: 0 2px 8px rgba(0,0,0,0.03);
+}
+
+label {
+    display: block;
+    margin-bottom: 8px;
+    color: #2C3E50;
+    font-weight: bold;
+    font-size: 0.95rem;
+}
+
+input, textarea, select {
+    width: 100%;
+    padding: 12px;
+    margin-bottom: 20px;
+    border: 1px solid #e5e7eb;
+    border-radius: 6px;
+    font-size: 1rem;
+    background-color: #f9fafb;
+    color: #2C3E50;
+    transition: all 0.3s ease;
+    box-sizing: border-box;
+}
+
+input:focus, textarea:focus, select:focus {
+    outline: none;
+    border-color: #3498db;
+    box-shadow: 0 0 0 2px rgba(56, 76, 200, 0.1);
+}
+
+input:disabled {
+    background-color: #f3f4f6;
+    color: #9ca3af;
+    cursor: not-allowed;
+}
+
+.fechas, .seleccion{
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 20px;
+}
+
+.botones {
+    display: flex;
+    gap: 15px;
+    margin-top: 10px;
+}
+
+.botones button {
+    flex: 1;
+    padding: 14px;
+    border: none;
+    border-radius: 8px;
+    font-size: 1rem;
+    font-weight: bold;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 8px;
+}
+
+.btn-guardar {
+    background-color: #3498db;
+    color: white;
+    box-shadow: 0 4px 10px rgba(52, 152, 219, 0.3);
+}
+
+.btn-guardar:hover:not(:disabled) {
+    background-color: #287FB8;
+    transform: translateY(-2px);
+}
+
+.btn-guardar:disabled {
+    background-color: #9ca3af;
+    box-shadow: none;
+}
+
+.lista-evidencias {
+    margin-top: 40px;
+    padding-top: 30px;
+    border-top: 2px solid #e5e7eb;
+}
+
+.lista-evidencias h3 {
+    color: #2C3E50;
+    margin-bottom: 20px;
+}
+
+.evidencias {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+    gap: 20px;
+}
+
+.tarjeta-evidencia {
+    background: white;
+    border: 1px solid #e5e7eb;
+    border-radius: 10px;
+    padding: 20px;
+    box-shadow: 0 4px 10px rgba(0,0,0,0.03);
+    transition: transform 0.3s;
+}
+
+.tarjeta-evidencia:hover {
+    box-shadow: 0 8px 15px rgba(0,0,0,0.08);
+}
+
+.tarjeta-evidencia h4 {
+    margin: 0 0 8px 0;
+    color: #2C3E50;
+}
+
+.fecha {
+    color: #6b7280;
+    font-size: 0.9rem;
+    margin: 0;
+}
+
+.info-secundaria {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin: 15px 0;
+    padding: 10px 0;
+    border-top: 1px dashed #e5e7eb;
+    border-bottom: 1px dashed #e5e7eb;
+}
+
+.monto {
+    color: #27ae60;
+    font-weight: bold;
+}
+
+.tipo {
+    background: #e0e7ff;
+    color: #1f31a5;
+    padding: 4px 10px;
+    border-radius: 20px;
+    font-weight: bold;
+}
+
+.btn-ver-archivo {
+    display: block;
+    text-align: center;
+    background-color: #f3f4f6;
+    color: #2C3E50;
+    padding: 12px;
+    border-radius: 8px;
+    text-decoration: none;
+    font-weight: bold;
+    transition: background-color 0.3s;
+}
+
+.btn-ver-archivo:hover {
+    background-color: #e5e7eb;
+    color: #1f31a5;
+}
+
+.cargando {
+    text-align: center;
+    padding: 60px 20px;
+    color: #6b7280;
+}
+
+@media (max-width: 768px) {
+    .detalle {
+        margin: 20px 15px;
+        padding: 20px 15px;
+    }
+
+    .panel-informativo, 
+    .fechas, 
+    .seleccion {
+        grid-template-columns: 1fr;
+        gap: 15px;
+    }
+
+    .botones {
+        flex-direction: column;
+    }
+
+    .detalle h2 {
+        font-size: 1.5rem;
+    }
+}

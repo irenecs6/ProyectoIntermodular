@@ -1,0 +1,54 @@
+<div class="registro-contenedor">
+  <h2>Registro de Donante</h2>
+    <p>Únete a nosotros para ayudar a múltiples de causas.</p>
+    @if (mensajesError.length > 0) {
+      <div class="alerta-error">
+        <p><strong>Por favor, revisa lo siguiente:</strong></p>
+        <ul>
+          @for (error of mensajesError; track $index) {
+            <li>{{ error }}</li>
+          }
+        </ul>
+      </div>
+    }
+  <form (ngSubmit)="registrarDonante()">
+    
+    <div>
+      <label>DNI:</label>
+      <input type="text" name="dni" [(ngModel)]="donante.dni" required>
+    </div>
+
+    <div>
+      <label>Nombre:</label>
+      <input type="text" name="nombre" [(ngModel)]="donante.nombre" required>
+    </div>
+
+    <div>
+      <label>Apellidos:</label>
+      <input type="text" name="apellidos" [(ngModel)]="donante.apellidos" required>
+    </div>
+
+    <div>
+      <label>Email:</label>
+      <input type="email" name="email" [(ngModel)]="donante.email" required>
+    </div>
+
+    <div>
+      <label>Contraseña:</label>
+      <input type="password" name="clave" [(ngModel)]="donante.clave" required>
+    </div>
+
+    <div>
+      <label>Teléfono:</label>
+      <input type="text" name="telefono" [(ngModel)]="donante.telefono">
+    </div>
+
+    <div>
+      <label>Fecha de Nacimiento:</label>
+      <input type="date" name="fechanacimiento" [(ngModel)]="donante.fechanacimiento">
+    </div>
+
+    <button type="submit">Crear cuenta</button>
+    
+  </form>
+</div>

@@ -1,0 +1,33 @@
+DONACIONES SOLIDARIAS
+
+Se puede iniciar sesión con DNI, CIF o Email
+Aquí tenéis todas las cuentas, podéis acceder a la que queráis
+
+*Usuario Jason Momoa (Donante)
+DNI: 12345678A
+Email: momoaj@gmail.com
+Clave: Carvajal
+
+
+* Usuario Ayuda Animal (ONG)
+CIF: B12121212
+Email: ayudanimal@gmail.com
+Clave: carvajal
+
+
+* Usuario Irene (Donante)
+DNI: 21153506S
+Email: carvajal6abril@gmail.com
+Clave: carvajal
+
+
+* Usuario Ayuda Solidaria Cadiz (ONG)
+CIF: B12345678
+Email: dolid@gmail.com
+Clave: carvajal
+
+
+*Usuario PorQueSi (ONG)
+CIF: 999999999
+Email: pqs@email.com
+Clave: carvajal

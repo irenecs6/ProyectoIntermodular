@@ -1,0 +1,45 @@
+<div class="historial">
+  <div class="cabecera">
+    <h1><i class="fa-solid fa-clock-rotate-left"></i> Mi Historial de Donaciones</h1>
+    <p>Gracias por ayudar a que estos proyectos se hagan realidad.</p>
+  </div>
+
+  @if (cargando) {
+    <div class="cargando">
+      <i class="fa-solid fa-circle-notch fa-spin"></i> Cargando tus donaciones...
+    </div>
+  } @else if (donaciones.length > 0) {
+    <div class="tabla">
+      <table class="donaciones">
+        <thead>
+          <tr>
+            <th>Fecha</th>
+            <th>Ayuda</th>
+            <th>Cantidad</th>
+            <th>Estado</th>
+          </tr>
+        </thead>
+        <tbody>
+          @for (donacion of donaciones; track donacion.id) {
+            <tr>
+              <td>{{ donacion.fecha | date:'dd/MM/yyyy' }}</td>
+              <td class="nombre-ayuda">{{ donacion.nombre_ayuda || donacion.ayuda }}</td>
+              <td class="cantidad">{{ donacion.cantidad }}€</td>
+              <td>
+                <span class="estado" [ngClass]="{'aceptada': donacion.estado === 'A'}">
+                  {{ donacion.estado === 'A' ? 'Confirmada' : 'Pendiente' }}
+                </span>
+              </td>
+            </tr>
+          }
+        </tbody>
+      </table>
+    </div>
+  } @else {
+    <div class="sin-datos">
+      <i class="fa-solid fa-heart-crack"></i>
+      <p>Aún no has realizado ninguna donación.</p>
+      <!-- <button routerLink="/ayudas" class="btn-ayudas">Ver ayudas</button> -->
+    </div>
+  }
+</div>

@@ -1,0 +1,44 @@
+<nav class="principal">
+  <div class="logo">
+    @if(isLoggedIn() && getRol() === 'donante'){
+      <a routerLink="/ayudas">DonacionesSolidarias</a>
+    }
+    @else if (isLoggedIn() && getRol() === 'ong') {
+      <a routerLink="/gestionayudas">DonacionesSolidarias</a>
+
+    }
+    @else {
+      <a routerLink="/">DonacionesSolidarias</a>
+    }
+  </div>
+
+  <ul class="enlaces">
+
+    @if(!isLoggedIn()){
+      <li><a routerLink="/ayudas">Ayudas</a></li>
+      <li><a routerLink="/login">Iniciar sesión</a></li>
+      <li class="desplegable">
+        <a class="desplegable">Crear cuenta ▾</a>
+        <div class="desplegable-contenido">
+          <a routerLink="/registro-donante">Soy Donante</a>
+          <a routerLink="/registro-ong">Soy ONG</a>
+        </div>
+      </li>
+    }
+
+    @if(isLoggedIn() && getRol() === 'donante'){
+      <li><a routerLink="/ayudas">Ayudas</a></li>
+      <li><a routerLink="/donaciones">Mis Donaciones</a></li>
+      <li><a routerLink="/perfil">Perfil</a></li>
+      <li><a style="cursor: pointer; color:rgb(237, 6, 6)" (click)="cerrarSesion()">Cerrar Sesión</a></li>
+    }
+
+    @if(isLoggedIn() && getRol() === 'ong'){
+      <li><a routerLink="/gestionayudas">Mis Campañas</a></li>
+      <li><a routerLink="/creacionayudas">Crear Ayuda</a></li>
+      <li><a routerLink="/perfil">Perfil</a></li>
+      <li><a style="cursor: pointer; color:rgb(237, 6, 6)" (click)="cerrarSesion()">Cerrar Sesión</a></li>
+    }
+
+  </ul>
+</nav>
