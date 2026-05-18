@@ -4,13 +4,31 @@
         <p>Selecciona una causa y colabora directamente con las ONGs.</p>
     </div>
 
+    <div class="buscador">
+        <input type="text" placeholder="Buscar por ayudas..." [(ngModel)]="filtroNombre" (input)="aplicarFiltros()">
+        
+        <select [(ngModel)]="filtroEstado" (change)="aplicarFiltros()">
+            <option value="">Todas las ayudas</option>
+            <option value="A">ONG Activas</option>
+            <option value="C">ONG Completadas</option>
+            <option value="X">ONG Canceladas</option>
+        </select>
+
+        <select [(ngModel)]="filtroEstadoONG" (change)="aplicarFiltros()">
+            <option value="">Todas las ONG</option>
+            <option value="V">ONG Sin Verificar</option>
+            <option value="F">ONG Fiablea</option>
+            <option value="S">ONG Sospechosas</option>
+        </select>
+    </div>
+
     @if (cargando) {
         <div class="cargando">
             <i class="fa-solid fa-spinner fa-spin"></i> Cargando...
         </div>
     } @else {
         <div class="ayudas">
-            @for (ayuda of listaAyudas; track ayuda.id) {
+            @for (ayuda of ayudasFiltradas; track ayuda.id) {
                 <div class="tarjetas">
                     
                     <div class="contenido-tarjeta">

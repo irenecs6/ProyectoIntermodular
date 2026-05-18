@@ -3,10 +3,11 @@ import { CommonModule } from '@angular/common';
 import { RouterModule, Router } from '@angular/router';
 import { AuthService } from '../../services/auth';
 import Swal from 'sweetalert2';
+import { FormsModule } from '@angular/forms';
 
 @Component({
   selector: 'app-ayudas',
-  imports: [CommonModule, RouterModule],
+  imports: [CommonModule, RouterModule, FormsModule],
   templateUrl: './ayudas.html',
   styleUrl: './ayudas.css',
 })
@@ -14,6 +15,12 @@ export class Ayudas {
   listaAyudas: any[] = [];
   cargando: boolean = true;
   
+  ayudasFiltradas: any[] = [];
+  filtroNombre: string = '';
+  filtroEstado: string = '';
+  filtroEstadoONG: string = '';
+
+
   private authService = inject(AuthService);
   private router = inject(Router);
   private cdr = inject(ChangeDetectorRef);
@@ -22,6 +29,7 @@ export class Ayudas {
     this.authService.obtenerTodasLasAyudas().subscribe({
       next: (datos) => {
         this.listaAyudas = datos;
+        this.ayudasFiltradas = datos;
         this.cargando = false;
         this.cdr.detectChanges();
       },
@@ -78,5 +86,19 @@ export class Ayudas {
       });
       return;
     }
+  }
+
+  aplicarFiltros() {
+    this.ayudasFiltradas = this.listaAyudas.filter(ayuda => {
+      //comprobamos si el nombre coincide con alguna ayuda
+      const coincideNombre = ayuda.nombreayuda.toLowerCase().includes(this.filtroNombre.toLowerCase());
+      //Comprobamos si el estado de las ayudas coincide
+      const coincideEstado = this.filtroEstado === '' || ayuda.estado === this.filtroEstado;
+      //Comprobamos si el estado ONG coincide
+      const coincideEstadoONG = this.filtroEstadoONG === '' || ayuda.ong_estado === this.filtroEstadoONG;
+      
+      return coincideNombre && coincideEstado && coincideEstadoONG;
+    });
+    this.cdr.detectChanges();
   }
 }
